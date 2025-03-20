@@ -74,7 +74,13 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
         quantity: 1
       });
     }
+
+    let cartQuantity = 0;/*因为下面forEach循环做的是从头累加购物车中的数量，每点击button一次就从头算一次*/
+
+    cart.forEach((item)=>{
+      cartQuantity += item.quantity;
+    });
     
-    console.log(cart);
+    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
   });
 });
